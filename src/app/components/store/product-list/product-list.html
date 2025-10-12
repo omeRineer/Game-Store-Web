@@ -1,0 +1,27 @@
+<div class="section trending mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <div class="row">
+                    @for(game of gameList.data; track gameList){
+                    <div class="col-md-3">
+                        <div class="item">
+                            <div class="thumb">
+                                <a href="/store/gameid">
+                                    <img class="cover-image"
+                                        src={{game.coverImage.url}}
+                                        alt=""></a>
+                            </div>
+                            <div class="down-content d-flex align-items-start flex-column">
+                                <span class="category">{{game.category.name}}</span>
+                                <h4>{{game.name}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

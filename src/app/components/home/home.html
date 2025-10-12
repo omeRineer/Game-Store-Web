@@ -1,0 +1,33 @@
+<div class="main-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 header-cards" id="side-slidercontents-area">
+                @for(sideSliderItem of sideSliderContents; track sideSliderContents){
+                <div class="header-card"
+                    style="background-attachment:local;background-image: url({{sideSliderItem.coverImage.url}});">
+                    <div class="header-card-background">
+                        <div class="d-flex align-items-start h-100 flex-column">
+                            <h5 class="text-light">{{sideSliderItem.header}}</h5>
+                            <p class="text-light">Blog</p>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="col-md-8">
+                <c-carousel [interval]="0">
+                    <c-carousel-inner>
+                        @for(sliderContentItem of sliderContents; track sliderContents){
+                        <c-carousel-item>
+                            <img src={{sliderContentItem.coverImage.url}}
+                                alt="Thw Witcher" class="d-block w-100" loading="lazy" />
+                        </c-carousel-item>
+                        }
+                    </c-carousel-inner>
+                    <c-carousel-control caption="Previous" direction="prev" />
+                    <c-carousel-control caption="Next" direction="next" />
+                </c-carousel>
+            </div>
+        </div>
+    </div>
+</div>
