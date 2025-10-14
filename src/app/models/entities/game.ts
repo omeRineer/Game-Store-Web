@@ -1,6 +1,6 @@
 import { BaseEntity } from "./baseEntity";
 import { Category } from "./category";
-import { Media } from "./media";
+import { GameImage } from "./gameImage";
 
 export class Game extends BaseEntity{
     name: string;
@@ -8,7 +8,8 @@ export class Game extends BaseEntity{
     content:string;
     price:number;
     releaseDate:Date;
+    coverImage:string;
+    images:GameImage[]
     
-    coverImage:Media;
     category:Category;
 }

@@ -2,9 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 header-cards" id="side-slidercontents-area">
+                @if(sideSliderContents){
                 @for(sideSliderItem of sideSliderContents; track sideSliderContents){
                 <div class="header-card"
-                    style="background-attachment:local;background-image: url({{sideSliderItem.coverImage.url}});">
+                    style="background-attachment:local;background-image: url({{sideSliderItem.coverImage}});">
                     <div class="header-card-background">
                         <div class="d-flex align-items-start h-100 flex-column">
                             <h5 class="text-light">{{sideSliderItem.header}}</h5>
@@ -13,20 +14,23 @@
                     </div>
                 </div>
                 }
+                }
             </div>
             <div class="col-md-8">
-                <c-carousel [interval]="0">
+                @if(sliderContents){
+                <c-carousel [interval]="5000">
                     <c-carousel-inner>
                         @for(sliderContentItem of sliderContents; track sliderContents){
                         <c-carousel-item>
-                            <img src={{sliderContentItem.coverImage.url}}
-                                alt="Thw Witcher" class="d-block w-100" loading="lazy" />
+                            <img src={{sliderContentItem.coverImage}} alt="Thw Witcher" class="d-block w-100"
+                                loading="lazy" />
                         </c-carousel-item>
                         }
                     </c-carousel-inner>
                     <c-carousel-control caption="Previous" direction="prev" />
                     <c-carousel-control caption="Next" direction="next" />
                 </c-carousel>
+                }
             </div>
         </div>
     </div>

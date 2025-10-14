@@ -4,14 +4,13 @@
             <div class="col-md-3"></div>
             <div class="col-md-9">
                 <div class="row">
-                    @for(game of gameList.data; track gameList){
+                    @if(gameCollection){
+                    @for(game of gameCollection.data; track gameCollection){
                     <div class="col-md-3">
                         <div class="item">
                             <div class="thumb">
-                                <a href="/store/gameid">
-                                    <img class="cover-image"
-                                        src={{game.coverImage.url}}
-                                        alt=""></a>
+                                <a routerLink="/store/{{game.id}}">
+                                    <img class="cover-image" src={{game.coverImage}} alt=""></a>
                             </div>
                             <div class="down-content d-flex align-items-start flex-column">
                                 <span class="category">{{game.category.name}}</span>
@@ -19,6 +18,7 @@
                             </div>
                         </div>
                     </div>
+                    }
                     }
                 </div>
             </div>

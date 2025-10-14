@@ -4,7 +4,8 @@ import { provideAnimations } from '@angular/platform-browser/animations'
 
 import { routes } from './app.routes';
 import { CarouselModule } from '@coreui/angular';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { loadSpinnerInterceptor } from './interceptors/load-spinner-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,6 +13,10 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimations(),
-    provideHttpClient()
+    provideHttpClient(
+      withInterceptors([
+        loadSpinnerInterceptor
+      ])
+    )
   ]
 };

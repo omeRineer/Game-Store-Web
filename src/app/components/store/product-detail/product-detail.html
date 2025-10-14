@@ -1,34 +1,32 @@
+@if (gameProduct) {
 <div class="row mb-4">
     <div class="col-md-6">
         <c-carousel [interval]="0" style="height: 25rem;" class="carousel slide">
             <c-carousel-inner>
+                @for(gameImage of gameProduct.images; track gameProduct){
                 <c-carousel-item>
-                    <img src="https://preview.redd.it/k0ei1p2eav041.jpg?auto=webp&s=7d6ba9eff32cf1e167dcb72c1267d26bd9bdd8e6"
-                        alt="Thw Witcher" class="d-block w-100" loading="lazy" />
+                    <img src={{gameImage.url}} alt={{gameImage.name}} class="d-block w-100" loading="lazy" />
                 </c-carousel-item>
-                <c-carousel-item>
-                    <img src="https://wallpapers.com/images/hd/the-witcher-1920x1080-7gviws7d05irt2z1.jpg"
-                        alt="Thw Witcher" class="d-block w-100" loading="lazy" />
-                </c-carousel-item>
+                }
             </c-carousel-inner>
             <c-carousel-control caption="Previous" direction="prev" />
             <c-carousel-control caption="Next" direction="next" />
         </c-carousel>
     </div>
-    <div class="col-md-6 p-4">
+    <div class="col-md-6 p-3">
         <div class="d-flex align-items-center gap-3">
             <div>
-                <img src="https://ik.imagekit.io/bgelqz3kwm/Uncharted-4.jpg?updatedAt=1752169974951"
+                <img src={{gameProduct.coverImage}}
                     style="width: 60px;height: 60px;object-fit: cover; border-radius: 10px;" alt="">
             </div>
             <div>
-                <h1 class="h3">Uncharted 4</h1>
-                <span>Adventure</span>
+                <h1 class="h3">{{gameProduct.name}}</h1>
+                <span>{{gameProduct.category.name}}</span>
             </div>
         </div>
         <hr>
         <div class="mt-2" style="height: 65%;">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit repellat eveniet ad magni blanditiis id, nam, pariatur et, odit distinctio maxime veritatis tempora provident. Itaque doloremque animi esse non cupiditate.</p>
+            <p>{{gameProduct.description}}</p>
         </div>
         <div class="mt-2 d-flex justify-content-end">
             <a href="#" class="h4">İNDİR</a>
@@ -42,8 +40,7 @@
             <div class="mb-4">
                 <span class="h4">Detaylı Bilgi</span>
             </div>
-            <div>
-                Content
+            <div [innerHTML]="gameProduct.content">
             </div>
         </div>
     </div>
@@ -64,3 +61,4 @@
         </div>
     </div>
 </div>
+}

@@ -1,5 +1,4 @@
 import { BaseEntity } from "./baseEntity";
-import { Media } from "./media";
 import { TypeLookup } from "./typeLookup";
 
 export class SliderContent extends BaseEntity{
@@ -7,6 +6,6 @@ export class SliderContent extends BaseEntity{
     to:string;
     priority:number;
     isActive:boolean;
-    coverImage:Media;
+    coverImage:string;
     sliderType:TypeLookup;
 }

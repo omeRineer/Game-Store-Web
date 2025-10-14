@@ -1,5 +1,5 @@
 export class TypeLookup{
     id:number;
-    name:string;
+    code:string;
     description:string;
 }
