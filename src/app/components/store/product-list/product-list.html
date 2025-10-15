@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-9">
+                @if(gameCollection){
                 <div class="row">
-                    @if(gameCollection){
-                    @for(game of gameCollection.data; track gameCollection){
+
+                    @for(game of gameCollection.data; track game.id){
                     <div class="col-md-3">
-                        <div class="item">
+                        <div class="item" routerLink="/store/{{game.id}}">
                             <div class="thumb">
-                                <a routerLink="/store/{{game.id}}">
-                                    <img class="cover-image" src={{game.coverImage}} alt=""></a>
+                                <img class="cover-image" src={{game.coverImage}} alt="">
                             </div>
                             <div class="down-content d-flex align-items-start flex-column">
                                 <span class="category">{{game.category.name}}</span>
@@ -19,8 +19,14 @@
                         </div>
                     </div>
                     }
-                    }
+
                 </div>
+                <div class="row">
+                    <app-pagination
+                        [totalPages]="(gameCollection.totalCount % 8 != 0) ? (gameCollection.totalCount / 8) + 1 : (gameCollection.totalCount / 8)"
+                        [currentPage]="gameCollection.page" (pageChange)="getListByPage($event)"></app-pagination>
+                </div>
+                }
             </div>
         </div>
     </div>

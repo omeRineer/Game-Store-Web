@@ -1,0 +1,23 @@
+<div class="pagination-container">
+    <div class="pagination">
+        <a class="pagination-newer" (click)="prevPage();"
+            [class.disabled]="currentPage === 0">
+            Geri
+        </a>
+
+        <span class="pagination-inner">
+            @for(page of pages; track page){
+            <a  (click)="goToPage(page);"
+                [class.pagination-active]="page === currentPage">
+                {{ page + 1 }}
+            </a>
+            }
+
+        </span>
+
+        <a class="pagination-older" (click)="nextPage();"
+            [class.disabled]="currentPage === totalPages - 1">
+            İleri
+        </a>
+    </div>
+</div>

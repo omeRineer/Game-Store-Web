@@ -5,7 +5,6 @@ import {
   CarouselInnerComponent,
   CarouselItemComponent
 } from '@coreui/angular';
-import { DataCollection } from '../../models/common/dataCollection';
 import { SliderContent } from '../../models/entities/sliderContent';
 import { SliderContentService } from '../../services/rest/slider-content-service';
 import { Observable } from 'rxjs';

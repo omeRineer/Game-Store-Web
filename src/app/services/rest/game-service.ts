@@ -4,8 +4,9 @@ import { Game } from '../../models/entities/game';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import { DataCollection } from '../../models/common/dataCollection';
+import { PaginationResponse } from '../../models/common/paginationResponse';
 import { ApiService } from './apiService';
+import { PaginationRequest } from '../../models/common/paginationRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,8 @@ export class GameService implements ApiService {
   }
   
 
-  getList(): Observable<ApiDataResponse<DataCollection<Game>>>{
-    return this.httpClient.get<ApiDataResponse<DataCollection<Game>>>(this.baseUrl)
+  getListByPage(paginationBody:PaginationRequest): Observable<ApiDataResponse<PaginationResponse<Game>>>{
+    return this.httpClient.post<ApiDataResponse<PaginationResponse<Game>>>(this.baseUrl, paginationBody)
   }
 
   get(id:string): Observable<ApiDataResponse<Game>>{
