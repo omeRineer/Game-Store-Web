@@ -33,6 +33,8 @@
     "@coreui/angular": "~5.5.17",
     "@coreui/coreui": "^5.4.3",
     "@coreui/icons-angular": "~5.5.17",
+    "@ngneat/overview": "6.1.1",
+    "@ngxpert/hot-toast": "^5.1.2",
     "@popperjs/core": "~2.11.8",
     "bootstrap": "^5.3.8",
     "jquery": "^3.7.1",

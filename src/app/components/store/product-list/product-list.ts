@@ -25,7 +25,7 @@ export class ProductList implements OnInit {
   }
 
   getListByPage(page:number): void{
-    this.gameService.getListByPage({ page: page, size: 8 }).subscribe(sub => {
+    this.gameService.getListByPage({ page: page, size: 12 }).subscribe(sub => {
 
       this.gameCollection = sub.data;
     })

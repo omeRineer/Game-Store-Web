@@ -23,7 +23,7 @@
                 </div>
                 <div class="row">
                     <app-pagination
-                        [totalPages]="(gameCollection.totalCount % 8 != 0) ? (gameCollection.totalCount / 8) + 1 : (gameCollection.totalCount / 8)"
+                        [totalPages]="(gameCollection.totalCount % 12 != 0) ? (gameCollection.totalCount / 12) + 1 : (gameCollection.totalCount / 12)"
                         [currentPage]="gameCollection.page" (pageChange)="getListByPage($event)"></app-pagination>
                 </div>
                 }

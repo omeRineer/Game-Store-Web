@@ -7,7 +7,11 @@
                         <li><a routerLink="">Ana Sayfa</a></li>
                         <li><a routerLink="store">Mağaza</a></li>
                         <li><a routerLink="blogs">Blog</a></li>
-                        <li><a routerLink="auth">Giriş Yap / Kayıt Ol</a></li>
+                        @if (!isAuth) {
+                        <li><a routerLink="login">Giriş Yap / Kayıt Ol</a></li>
+                        }@else {
+                        <li><a (click)="onLogout()">Çıkış Yap</a></li>
+                        }
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menü</span>

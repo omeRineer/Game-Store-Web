@@ -6,6 +6,7 @@ import { routes } from './app.routes';
 import { CarouselModule } from '@coreui/angular';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { loadSpinnerInterceptor } from './interceptors/load-spinner-interceptor';
+import { provideHotToastConfig } from '@ngxpert/hot-toast';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,6 +18,9 @@ export const appConfig: ApplicationConfig = {
       withInterceptors([
         loadSpinnerInterceptor
       ])
-    )
+    ), 
+    provideHotToastConfig({
+      position: "top-right"
+    })
   ]
 };
